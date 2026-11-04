@@ -1,0 +1,29 @@
+.header { position: sticky; top: 0; z-index: 100; height: var(--header-h); background: rgba(9, 11, 16, 0.72); backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid var(--border); }
+.header-inner { height: 100%; display: flex; align-items: center; gap: 32px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em; }
+.logo-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--gradient); color: #07080c; font-size: 1.05rem; box-shadow: 0 6px 20px -6px rgba(124, 92, 255, 0.9); }
+.nav { display: flex; gap: 4px; }
+.nav-link { padding: 9px 15px; border-radius: 10px; color: var(--text-muted); font-weight: 500; transition: color 0.2s, background 0.2s; }
+.nav-link:hover { color: var(--text); background: var(--surface); }
+.nav-link.active { color: var(--text); background: var(--surface-2); }
+.header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.burger { display: none; }
+
+.container-main { min-height: calc(100vh - var(--header-h) - 250px); }
+
+.footer { border-top: 1px solid var(--border); background: var(--bg-elevated); padding-top: 48px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.footer-text { margin-top: 14px; max-width: 320px; }
+.footer-cols { display: flex; gap: 70px; }
+.footer-cols > div { display: flex; flex-direction: column; gap: 10px; color: var(--text-muted); }
+.footer-cols h4 { font-family: var(--font-display); color: var(--text); margin-bottom: 4px; }
+.footer-cols a:hover { color: var(--text); }
+.footer-bottom { padding-top: 36px; padding-bottom: 28px; font-size: 13px; }
+
+@media (max-width: 860px) {
+  .header-inner { gap: 12px; }
+  .burger { display: inline-flex; }
+  .nav { position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; padding: 12px 16px 18px; background: var(--bg-elevated); border-bottom: 1px solid var(--border); display: none; }
+  .nav.nav-open { display: flex; }
+  .footer-cols { gap: 40px; }
+}
