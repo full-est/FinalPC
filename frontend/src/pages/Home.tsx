@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import { api } from '../api'
 import { Icon, type IconName } from '../components/Icon'
+import { BuildCard } from '../components/BuildCard'
 import { ProductImage } from '../components/ProductImage'
 import { useFetch } from '../hooks/useFetch'
+import '../styles/catalog.css'
+import '../styles/builds.css'
 import '../styles/home.css'
 
 const FEATURES: { icon: IconName; title: string; text: string }[] = [
@@ -14,6 +17,7 @@ const FEATURES: { icon: IconName; title: string; text: string }[] = [
 
 export default function Home() {
   const cats = useFetch(() => api.categories(), [])
+  const builds = useFetch(() => api.builds({ size: 3 }), [])
 
   return (
     <>
@@ -37,6 +41,16 @@ export default function Home() {
             <span className="float-tag t2"><Icon name="cpu" size={16} /> Ryzen 9 7950X</span>
             <span className="float-tag t3"><Icon name="bolt" size={16} /> DDR5 6400</span>
           </div>
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-head">
+          <h2>Готовые сборки</h2>
+          <Link to="/builds" className="btn btn-ghost">Все сборки <Icon name="arrowRight" size={16} /></Link>
+        </div>
+        <div className="grid-builds">
+          {builds.data?.items.map(b => <BuildCard key={b.id} build={b} />)}
         </div>
       </section>
 
