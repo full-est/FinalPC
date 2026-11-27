@@ -4,6 +4,7 @@ import { ToastProvider } from './components/Toast'
 import BuildPage from './pages/BuildPage'
 import Builds from './pages/Builds'
 import Catalog from './pages/Catalog'
+import Configurator from './pages/Configurator'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Product from './pages/Product'
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="catalog/:id" element={<Product />} />
             <Route path="builds" element={<Builds />} />
             <Route path="builds/:id" element={<BuildPage />} />
+            <Route path="configurator" element={<Configurator />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
